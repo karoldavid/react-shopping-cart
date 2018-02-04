@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Table from "./Table";
+import ProductsForm from "./ProductsForm";
 import { Card } from "material-ui";
 
 class ShoppingCart extends Component {
@@ -10,6 +11,7 @@ class ShoppingCart extends Component {
 		return (
 			<Card>
 				<Table data={fields} />
+				<ProductsForm />
 			</Card>
 		);
 	}

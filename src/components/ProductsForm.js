@@ -30,6 +30,12 @@ class ProductsForm extends Component {
 	}
 }
 
+const mapStateToProps = ({ products: { fields } }) => {
+	return {
+		fields
+	};
+};
+
 export default reduxForm({
 	form: "productsForm"
-})(connect()(ProductsForm));
+})(connect(mapStateToProps)(ProductsForm));
