@@ -11,13 +11,15 @@ import {
 /**
  * A simple table demonstrating the hierarchy of the `Table` component and its sub-components.
  */
-export default () => (
+export default ({ data }) => (
   <Table>
     <TableHeader>
       <TableRow>
-        <TableHeaderColumn>ID</TableHeaderColumn>
-        <TableHeaderColumn>Name</TableHeaderColumn>
-        <TableHeaderColumn>Status</TableHeaderColumn>
+        {data.map((item, index) => {
+          return (
+            <TableHeaderColumn key={index}>{item.label}</TableHeaderColumn>
+          );
+        })}
       </TableRow>
     </TableHeader>
     <TableBody>

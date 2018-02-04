@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ShoppingCart data={CART_ITEM_FIELDS}/
+        <ShoppingCart fields={CART_ITEM_FIELDS}/
         >
       </div>
     );

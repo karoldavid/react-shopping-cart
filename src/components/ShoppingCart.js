@@ -6,11 +6,11 @@ import { Card } from "material-ui";
 class ShoppingCart extends Component {
 
 	render() {
-		const { data } = this.props;
+		const { fields } = this.props;
 
 		return (
 			<Card>
-				<Table />
+				<Table data={fields}/>
 			</Card>
 		);
 	}
