@@ -6,11 +6,11 @@ import { Card } from "material-ui";
 
 class ShoppingCart extends Component {
 	render() {
-		const { fields } = this.props;
+		const { fields, items } = this.props;
 
 		return (
 			<Card>
-				<Table data={fields} />
+				<Table header={fields} items={items} />
 				<ProductsForm />
 			</Card>
 		);
@@ -18,7 +18,6 @@ class ShoppingCart extends Component {
 }
 
 const mapStateToProps = ({ products: { fields, items } }) => {
-	console.log(items);
 	return {
 		fields,
 		items
