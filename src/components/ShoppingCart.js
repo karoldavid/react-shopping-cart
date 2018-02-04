@@ -17,9 +17,11 @@ class ShoppingCart extends Component {
 	}
 }
 
-const mapStateToProps = ({ products: { fields } }) => {
+const mapStateToProps = ({ products: { fields, items } }) => {
+	console.log(items);
 	return {
-		fields
+		fields,
+		items
 	};
 };
 

@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
 import FormFields from "./FormFields";
 import { RaisedButton } from "material-ui";
+import * as actions from "../actions";
 
 class ProductsForm extends Component {
 	onFormSubmit = params => {
-		alert(`Form Data: ${JSON.stringify(params)}`);
+		this.props.addItem(params);
 		this.props.reset();
 	};
 
@@ -38,4 +39,4 @@ const mapStateToProps = ({ products: { fields } }) => {
 
 export default reduxForm({
 	form: "productsForm"
-})(connect(mapStateToProps)(ProductsForm));
+})(connect(mapStateToProps, actions)(ProductsForm));
