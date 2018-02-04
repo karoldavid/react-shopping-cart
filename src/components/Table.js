@@ -18,6 +18,7 @@ export default ({ header, items }) => (
             <TableHeaderColumn key={index + 1}>{item.label}</TableHeaderColumn>
           );
         })}
+        <TableHeaderColumn key={"delete-column"}></TableHeaderColumn>
       </TableRow>
     </TableHeader>
     <TableBody displayRowCheckbox={false}>
@@ -28,6 +29,7 @@ export default ({ header, items }) => (
             {Object.keys(item).map((key, index) => {
               return <TableRowColumn key={index}>{item[key]}</TableRowColumn>;
             })}
+            <TableHeaderColumn key={"delete-column"}>x</TableHeaderColumn>
           </TableRow>
         );
       })}

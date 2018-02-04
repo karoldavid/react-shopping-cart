@@ -3,13 +3,16 @@ import { ADD_ITEM } from "../actions/types";
 
 const INITIAL_STATE = {
 	fields: CART_ITEM_FIELDS,
-	items: []
+	items: [],
+	item: CART_ITEM_FIELDS.reduce((prev, next) => {
+		return {...prev, [next.name]: next.value };
+	}, {})
 };
 
 export default function(state = INITIAL_STATE, action) {
 	switch (action.type) {
 		case ADD_ITEM:
-			return { ...state, items: [...state.items, action.payload] };
+			return { ...state, items: [...state.items, { ...action.payload, ...state.item }] };
 		default:
 			return state;
 	}
