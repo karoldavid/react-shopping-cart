@@ -1,39 +1,59 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
+import { Dialog, FlatButton, RaisedButton } from "material-ui";
 import FormFields from "./FormFields";
-import { RaisedButton } from "material-ui";
 import * as actions from "../actions";
 
 class ProductsForm extends Component {
+	state = {
+		open: false
+	};
 	onFormSubmit = params => {
 		this.props.addItem(params);
+		this.props.closeModal();
 		this.props.reset();
 	};
 
 	render() {
 		const { handleSubmit, fields } = this.props;
+		const actions = [
+			<FlatButton
+				label="Cancel"
+				primary
+				onClick={this.props.closeModal}
+			/>,
+			<FlatButton
+				type="submit"
+				label="Submit"
+				primary
+				onClick={handleSubmit(this.onFormSubmit)}
+			/>
+		];
 
 		return (
-			<form onSubmit={handleSubmit(this.onFormSubmit)}>
-				<FormFields fields={fields} />
-
-				<RaisedButton
-					primary
-					labelColor="#FFFFFF"
-					type="submit"
-					label="Submit"
-					className={"submit-button"}
-					onClick={this.onSubmitClick}
-				/>
-			</form>
+			<Dialog
+				title={this.props.label}
+				actions={actions}
+				modal={true}
+				contentStyle={{
+					width: 350,
+					maxWidth: "none"
+				}}
+				open={this.props.open}
+			>
+				<form>
+					<FormFields fields={fields} />
+				</form>
+			</Dialog>
 		);
 	}
 }
 
-const mapStateToProps = ({ products: { fields } }) => {
+const mapStateToProps = ({ products: { fields }, modal: { open } }) => {
 	return {
-		fields
+		fields,
+		open
 	};
 };
 

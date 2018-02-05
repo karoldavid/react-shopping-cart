@@ -21,7 +21,7 @@ export default class FormFields extends Component {
 	makeFields = ({ name, label }) => {
 		return (
 			<div key={name}>
-				<Field
+				<Field key={name}
 					name={name}
 					component={this.renderTextField}
 					label={label}

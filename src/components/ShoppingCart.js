@@ -10,19 +10,20 @@ class ShoppingCart extends Component {
 	onRemoveIconClick = index => {
 		this.props.removeItem(index);
 	};
+	
 	render() {
 		const { fields, items } = this.props;
 
 		return (
 			<div>
 				<ToolBar />
+				<ProductsForm />
 				<Card>
 					<Table
 						header={fields}
 						items={items}
 						onClick={this.onRemoveIconClick}
 					/>
-					<ProductsForm />
 				</Card>
 			</div>
 		);
