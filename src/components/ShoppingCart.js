@@ -22,7 +22,7 @@ class ShoppingCart extends Component {
 					justifyContent: "center",
 				}}
 			>
-				<div style={{ width: "70vw", marginTop: 25 }}>
+				<div style={{ width: "90vw", marginTop: 25 }}>
 					<ToolBar />
 					<ProductsForm />
 					<Card>
