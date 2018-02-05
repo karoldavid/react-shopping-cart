@@ -53,7 +53,10 @@ export default ({ header, items, onClick }) => (
               style={{ fontSize: 20 }}
               key={Object.keys(item).length + 1}
             >
-              <button onClick={() => onClick(index)}>
+              <button
+                style={{ backgroundColor: "#ff4081" }}
+                onClick={() => onClick(index)}
+              >
                 <CloseIcon />
               </button>
             </TableRowColumn>

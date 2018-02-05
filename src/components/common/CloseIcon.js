@@ -1,6 +1,6 @@
 import React from "react";
 export default () => (
-	<svg
+	<svg style={{ fill: "white"}}
 		xmlns="http://www.w3.org/2000/svg"
 		width="18"
 		height="18"

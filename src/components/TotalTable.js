@@ -5,7 +5,6 @@ import {
   TableRow,
   TableRowColumn
 } from "material-ui/Table";
-import CloseIcon from "./common/CloseIcon";
 
 export default () => (
   <Table>
