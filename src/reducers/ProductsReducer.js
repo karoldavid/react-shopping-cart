@@ -1,5 +1,5 @@
 import { CART_ITEM_FIELDS } from "../utils/consts";
-import { ADD_ITEM } from "../actions/types";
+import { ADD_ITEM, REMOVE_ITEM } from "../actions/types";
 
 const INITIAL_STATE = {
 	fields: CART_ITEM_FIELDS,
@@ -15,6 +15,13 @@ export default function(state = INITIAL_STATE, action) {
 			return {
 				...state,
 				items: [...state.items, { ...state.item, ...action.payload }]
+			};
+		case REMOVE_ITEM:
+			return {
+				...state,
+				items: state.items.filter(
+					(item, index) => index !== action.payload
+				)
 			};
 		default:
 			return state;

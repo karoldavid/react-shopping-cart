@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import Table from "./Table";
 import ProductsForm from "./ProductsForm";
 import { Card } from "material-ui";
+import * as actions from "../actions";
 
 class ShoppingCart extends Component {
 	onRemoveIconClick = index => {
-		console.log(index);
+		this.props.removeItem(index);
 	};
 	render() {
 		const { fields, items } = this.props;
@@ -33,4 +34,4 @@ const mapStateToProps = ({ products: { fields, items, item } }) => {
 	};
 };
 
-export default connect(mapStateToProps)(ShoppingCart);
+export default connect(mapStateToProps, actions)(ShoppingCart);
