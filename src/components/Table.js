@@ -9,7 +9,7 @@ import {
 } from "material-ui/Table";
 import CloseIcon from "./common/CloseIcon";
 
-export default ({ header, items }) => (
+export default ({ header, items, onClick }) => (
   <Table>
     <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
       <TableRow>
@@ -19,18 +19,22 @@ export default ({ header, items }) => (
             <TableHeaderColumn key={index + 1}>{item.label}</TableHeaderColumn>
           );
         })}
-        <TableHeaderColumn key={"delete-column"}></TableHeaderColumn>
+        <TableHeaderColumn key={"delete-column"} />
       </TableRow>
     </TableHeader>
     <TableBody displayRowCheckbox={false}>
       {items.map((item, index) => {
         return (
-          <TableRow>
-            <TableRowColumn key={index}>{index + 1}</TableRowColumn>
-            {Object.keys(item).map((key, index) => {
-              return <TableRowColumn key={index}>{item[key]}</TableRowColumn>;
+          <TableRow key={index}>
+            <TableRowColumn key={0}>{index + 1}</TableRowColumn>
+            {Object.keys(item).map((key, i) => {
+              return <TableRowColumn key={i + 1}>{item[key]}</TableRowColumn>;
             })}
-            <TableHeaderColumn key={"delete-column"}><CloseIcon /></TableHeaderColumn>
+            <TableHeaderColumn key={Object.keys(item).length + 1}>
+              <button onClick={() => onClick(index)}>
+                <CloseIcon />
+              </button>
+            </TableHeaderColumn>
           </TableRow>
         );
       })}

@@ -5,12 +5,19 @@ import ProductsForm from "./ProductsForm";
 import { Card } from "material-ui";
 
 class ShoppingCart extends Component {
+	onRemoveIconClick = index => {
+		console.log(index);
+	};
 	render() {
 		const { fields, items } = this.props;
 
 		return (
 			<Card>
-				<Table header={fields} items={items} />
+				<Table
+					header={fields}
+					items={items}
+					onClick={this.onRemoveIconClick}
+				/>
 				<ProductsForm />
 			</Card>
 		);
@@ -18,7 +25,7 @@ class ShoppingCart extends Component {
 }
 
 const mapStateToProps = ({ products: { fields, items, item } }) => {
-	console.log(item)
+	console.log(item);
 	return {
 		fields,
 		items,
