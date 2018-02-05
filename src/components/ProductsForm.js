@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { reduxForm } from "redux-form";
-import { Dialog, FlatButton, RaisedButton } from "material-ui";
+import { Dialog, FlatButton } from "material-ui";
 import FormFields from "./FormFields";
 import * as actions from "../actions";
 
@@ -33,7 +33,7 @@ class ProductsForm extends Component {
 
 		return (
 			<Dialog
-				title={this.props.label}
+				title="Add New Product"
 				actions={actions}
 				modal={true}
 				contentStyle={{

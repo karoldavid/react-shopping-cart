@@ -9,28 +9,26 @@ class ToolBar extends Component {
   };
 
   openProductForm = () => {
-    this.props.openModal()
-  }
+    this.props.openModal();
+  };
 
   render() {
     return (
       <Toolbar>
         <ToolbarGroup>
-          <ToolbarTitle text="Your Cart" />
+          <ToolbarTitle text="Your cart" />
         </ToolbarGroup>
         <ToolbarGroup>
           <RaisedButton secondary label="Clear Cart" onClick={this.resetCart} />
-          <RaisedButton primary label="Add New Product" onClick={this.openProductForm} />
+          <RaisedButton
+            primary
+            label="Add New Product"
+            onClick={this.openProductForm}
+          />
         </ToolbarGroup>
       </Toolbar>
     );
   }
 }
 
-const mapStateToProps = ({ modal: { open } }) => {
-  return {
-    open
-  };
-};
-
-export default connect(mapStateToProps, actions)(ToolBar);
+export default connect(null, actions)(ToolBar);

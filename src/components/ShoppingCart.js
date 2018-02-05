@@ -5,26 +5,41 @@ import ProductsForm from "./ProductsForm";
 import { Card } from "material-ui";
 import * as actions from "../actions";
 import ToolBar from "./ToolBar";
+import TotalTable from "./TotalTable";
 
 class ShoppingCart extends Component {
 	onRemoveIconClick = index => {
 		this.props.removeItem(index);
 	};
-	
+
 	render() {
 		const { fields, items } = this.props;
 
 		return (
-			<div>
-				<ToolBar />
-				<ProductsForm />
-				<Card>
-					<Table
-						header={fields}
-						items={items}
-						onClick={this.onRemoveIconClick}
-					/>
-				</Card>
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+				}}
+			>
+				<div style={{ width: "70vw", marginTop: 50 }}>
+					<ToolBar />
+					<ProductsForm />
+					<Card>
+						<Table
+							header={fields}
+							items={items}
+							onClick={this.onRemoveIconClick}
+						/>
+					</Card>
+					<div
+						style={{ display: "flex", justifyContent: "flex-end" }}
+					>
+						<Card style={{ width: 500, marginTop: 50 }}>
+							<TotalTable />
+						</Card>
+					</div>
+				</div>
 			</div>
 		);
 	}
