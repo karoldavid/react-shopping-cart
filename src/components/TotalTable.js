@@ -7,20 +7,14 @@ const getTotal = data => {
   }, 0);
 };
 
-const makeTaxRowColumns = data => {
-  const taxCols = data.reduce((prev, next) => {
-    const tax = parseInt(next.tax, 0);
-    if (prev.indexOf(tax) === -1) {
-      return [...prev, tax];
-    }
-    return prev;
-  }, []);
-  console.log(taxCols);
-  return taxCols.map((tax, index) => {
+const makeTaxRowColumns = ({ taxCols }) => {
+  return Object.keys(taxCols).map((key, index) => {
     return (
       <TableRow displayBorder={false} key={index}>
-        <TableRowColumn>{`${tax} %`}</TableRowColumn>
-        <TableRowColumn style={styles.numberColumn}>999</TableRowColumn>
+        <TableRowColumn>{`${key} %`}</TableRowColumn>
+        <TableRowColumn style={styles.numberColumn}>
+          {`${taxCols[key].toFixed(2)} €`}
+        </TableRowColumn>
       </TableRow>
     );
   });
@@ -32,17 +26,21 @@ export default ({ data }) => (
       <TableRow style={styles.boldText}>
         <TableRowColumn>Net Total</TableRowColumn>
         <TableRowColumn style={styles.numberColumn}>
-          {`${getTotal(data)} €`}
+          {`${data.netTotal.toFixed(2)} €`}
         </TableRowColumn>
       </TableRow>
       <TableRow displayBorder={false} style={styles.boldText}>
         <TableRowColumn>Tax</TableRowColumn>
-        <TableRowColumn style={styles.numberColumn}>999</TableRowColumn>
+        <TableRowColumn style={styles.numberColumn}>
+          {`${data.taxTotal.toFixed(2)} €`}
+        </TableRowColumn>
       </TableRow>
       {makeTaxRowColumns(data)}
       <TableRow style={styles.grandTotalText}>
         <TableRowColumn>Grand Total</TableRowColumn>
-        <TableRowColumn style={styles.numberColumn}>999</TableRowColumn>
+        <TableRowColumn style={styles.numberColumn}>
+          {`${data.grandTotal.toFixed(2)} €`}
+        </TableRowColumn>
       </TableRow>
     </TableBody>
   </Table>
