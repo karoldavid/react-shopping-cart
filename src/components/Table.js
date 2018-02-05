@@ -17,10 +17,10 @@ const makeTableHeaderColumn = (value, key) => {
   );
 };
 
-const makeTableRowColumn = (value, key) => {
+const makeTableRowColumn = (value, key, type) => {
   return (
     <TableRowColumn style={{ fontSize: 20 }} key={key}>
-      {value}
+      {`${value} ${type ? type: ""}`}
     </TableRowColumn>
   );
 };
@@ -47,7 +47,7 @@ export default ({ header, items, onClick }) => (
             {makeTableRowColumn(index + 1, 0)}
 
             {Object.keys(item).map((key, i) =>
-              makeTableRowColumn(item[key], i + 1)
+              makeTableRowColumn(item[key], i + 1, header[i].type)
             )}
             <TableRowColumn
               style={{ fontSize: 20 }}

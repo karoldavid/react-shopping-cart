@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  Table,
-  TableBody,
-  TableRow,
-  TableRowColumn
-} from "material-ui/Table";
+import { Table, TableBody, TableRow, TableRowColumn } from "material-ui/Table";
 
-export default () => (
+export default ({ data }) => (
   <Table>
     <TableBody displayRowCheckbox={false}>
       <TableRow style={styles.boldText}>
