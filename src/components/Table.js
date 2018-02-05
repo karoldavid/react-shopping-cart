@@ -9,17 +9,28 @@ import {
 } from "material-ui/Table";
 import CloseIcon from "./common/CloseIcon";
 
+const makeTableHeaderColumn = (value, key) => {
+  return (
+    <TableHeaderColumn style={{ color: "white", fontSize: 20 }} key={key}>
+      {value}
+    </TableHeaderColumn>
+  );
+};
+
 export default ({ header, items, onClick }) => (
   <Table>
-    <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+    <TableHeader
+      style={{ backgroundColor: "blue" }}
+      displaySelectAll={false}
+      adjustForCheckbox={false}
+    >
       <TableRow>
-        <TableHeaderColumn key={0}>#</TableHeaderColumn>
+        {makeTableHeaderColumn("#", 0)}
         {header.map((item, index) => {
-          return (
-            <TableHeaderColumn key={index + 1}>{item.label}</TableHeaderColumn>
-          );
+          return makeTableHeaderColumn(item.label, index + 1 );
         })}
-        <TableHeaderColumn key={"delete-column"} />
+        <TableHeaderColumn style={{ color: "white" }} key={"delete-column"} />
+        {makeTableHeaderColumn("", "delete-column")}
       </TableRow>
     </TableHeader>
     <TableBody displayRowCheckbox={false}>
