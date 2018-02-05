@@ -43,7 +43,9 @@ class ProductsForm extends Component {
 				open={this.props.open}
 			>
 				<form>
-					<FormFields fields={fields} />
+					<FormFields
+						fields={fields.filter(el => el.name !== "totalItem")}
+					/>
 				</form>
 			</Dialog>
 		);

@@ -18,13 +18,15 @@ export default class FormFields extends Component {
 		/>
 	);
 
-	makeFields = ({ name, label }) => {
+	makeFields = ({ name, label, type }) => {
 		return (
 			<div key={name}>
 				<Field key={name}
 					name={name}
 					component={this.renderTextField}
 					label={label}
+					type={type}
+					parse={value => type === "number" ? Number(value): String(value)}
 				/>
 			</div>
 		);

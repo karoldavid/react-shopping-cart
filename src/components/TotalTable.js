@@ -55,6 +55,6 @@ const styles = {
     color: "blue"
   },
   numberColumn: {
-    width: 50
+    width: 80
   }
 };

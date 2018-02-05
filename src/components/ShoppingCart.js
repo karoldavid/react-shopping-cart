@@ -6,7 +6,6 @@ import { Card } from "material-ui";
 import * as actions from "../actions";
 import ToolBar from "./ToolBar";
 import TotalTable from "./TotalTable";
-import store from "../store";
 
 class ShoppingCart extends Component {
 	componentDidMount() {

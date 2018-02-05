@@ -52,7 +52,7 @@ export default ({ header, items, onClick }) => (
                   parseInt(item.tax, 0) * parseInt(item.price, 0) / 100 +
                   parseInt(item.price, 0);
               }
-              return makeTableRowColumn(item[key], i + 1, header[i].type);
+              return makeTableRowColumn(item[key], i + 1, header[i].unit);
             })}
             <TableRowColumn
               style={{ fontSize: 20 }}
