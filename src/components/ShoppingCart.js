@@ -36,7 +36,7 @@ class ShoppingCart extends Component {
 						style={{ display: "flex", justifyContent: "flex-end" }}
 					>
 						<Card style={{ width: 300, marginTop: 25 }}>
-							<TotalTable />
+							<TotalTable data={items}/>
 						</Card>
 					</div>
 				</div>

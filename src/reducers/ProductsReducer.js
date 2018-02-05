@@ -3,7 +3,7 @@ import { ADD_ITEM, REMOVE_ITEM, REMOVE_ITEMS } from "../actions/types";
 
 const INITIAL_STATE = {
 	fields: CART_ITEM_FIELDS,
-	items: [],
+	items: [{ tax: "10", totalItem: "100" }, { tax: "20", totalItem: "200" }, { tax: "10", totalItem: "50" }, { tax: "10", totalItem: "320" }],
 	item: CART_ITEM_FIELDS.reduce((prev, next) => {
 		return { ...prev, [next.name]: next.value };
 	}, {})
