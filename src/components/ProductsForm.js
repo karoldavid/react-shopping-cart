@@ -12,7 +12,7 @@ class ProductsForm extends Component {
 	};
 
 	render() {
-		const { handleSubmit, fields, errors } = this.props;
+		const { handleSubmit, fields } = this.props;
 
 		return (
 			<form onSubmit={handleSubmit(this.onFormSubmit)}>

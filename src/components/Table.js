@@ -7,6 +7,7 @@ import {
   TableRow,
   TableRowColumn
 } from "material-ui/Table";
+import CloseIcon from "./common/CloseIcon";
 
 export default ({ header, items }) => (
   <Table>
@@ -29,7 +30,7 @@ export default ({ header, items }) => (
             {Object.keys(item).map((key, index) => {
               return <TableRowColumn key={index}>{item[key]}</TableRowColumn>;
             })}
-            <TableHeaderColumn key={"delete-column"}>x</TableHeaderColumn>
+            <TableHeaderColumn key={"delete-column"}><CloseIcon /></TableHeaderColumn>
           </TableRow>
         );
       })}
