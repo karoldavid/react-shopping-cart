@@ -20,7 +20,7 @@ const makeTableHeaderColumn = (value, key) => {
 const makeTableRowColumn = (value, key, type) => {
   return (
     <TableRowColumn style={{ fontSize: 20 }} key={key}>
-      {`${value} ${type ? type: ""}`}
+      {`${value} ${type ? type : ""}`}
     </TableRowColumn>
   );
 };
@@ -46,9 +46,14 @@ export default ({ header, items, onClick }) => (
           <TableRow key={index}>
             {makeTableRowColumn(index + 1, 0)}
 
-            {Object.keys(item).map((key, i) =>
-              makeTableRowColumn(item[key], i + 1, header[i].type)
-            )}
+            {Object.keys(item).map((key, i) => {
+              if (key === "totalItem") {
+                item[key] =
+                  parseInt(item.tax, 0) * parseInt(item.price, 0) / 100 +
+                  parseInt(item.price, 0);
+              }
+              return makeTableRowColumn(item[key], i + 1, header[i].type);
+            })}
             <TableRowColumn
               style={{ fontSize: 20 }}
               key={Object.keys(item).length + 1}
