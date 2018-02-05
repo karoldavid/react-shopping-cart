@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM } from "./types";
+import { ADD_ITEM, REMOVE_ITEM, REMOVE_ITEMS } from "./types";
 
 export const addItem = item => {
 	return {
@@ -13,3 +13,9 @@ export const removeItem = index => {
 		payload: index
 	};
 };
+
+export const resetCart = () => {
+	return {
+		type: REMOVE_ITEMS
+	}
+}

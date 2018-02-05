@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
-import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import RaisedButton from 'material-ui/RaisedButton';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import {
+  RaisedButton,
+  Toolbar,
+  ToolbarGroup,
+  ToolbarTitle
+} from "material-ui";
+import * as actions from "../actions";
 
 class ToolBar extends Component {
+
+  resetCart = () => {
+    this.props.resetCart();
+  }
 
   render() {
     return (
@@ -17,7 +21,7 @@ class ToolBar extends Component {
           <ToolbarTitle text="Your Cart" />
         </ToolbarGroup>
         <ToolbarGroup>
-          <RaisedButton secondary label="Clear Cart" />
+          <RaisedButton secondary label="Clear Cart" onClick={this.resetCart}/>
           <RaisedButton primary label="Add New Product" />
         </ToolbarGroup>
       </Toolbar>
@@ -25,4 +29,4 @@ class ToolBar extends Component {
   }
 }
 
-export default ToolBar
+export default connect(null, actions)(ToolBar);
