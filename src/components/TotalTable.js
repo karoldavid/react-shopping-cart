@@ -4,7 +4,10 @@ import { Table, TableBody, TableRow, TableRowColumn } from "material-ui/Table";
 const makeTaxRowColumns = ({ taxCols }) => {
   return Object.keys(taxCols).map((key, index) => {
     return (
-      <TableRow displayBorder={false} key={index}>
+      <TableRow
+        displayBorder={index === Object.keys(taxCols).length - 1}
+        key={index}
+      >
         <TableRowColumn>{`${key} %`}</TableRowColumn>
         <TableRowColumn style={styles.numberColumn}>
           {`${taxCols[key].toFixed(2)} €`}
