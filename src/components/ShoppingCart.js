@@ -14,7 +14,7 @@ class ShoppingCart extends Component {
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.items !== this.props.items)
-		this.props.getTax(nextProps.items);
+			this.props.getTax(nextProps.items);
 	}
 
 	onRemoveIconClick = index => {
@@ -33,7 +33,7 @@ class ShoppingCart extends Component {
 			>
 				<div style={{ width: "90vw", marginTop: 25 }}>
 					<ToolBar />
-					<ProductsForm fields={fields}/>
+					<ProductsForm fields={fields} />
 					<Card>
 						<ProductTable
 							header={fields}
