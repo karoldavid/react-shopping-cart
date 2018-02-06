@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Table from "./Table";
+import ProductTable from "./ProductTable";
 import ProductsForm from "./ProductsForm";
 import { Card } from "material-ui";
 import * as actions from "../actions";
@@ -35,7 +35,7 @@ class ShoppingCart extends Component {
 					<ToolBar />
 					<ProductsForm fields={fields}/>
 					<Card>
-						<Table
+						<ProductTable
 							header={fields}
 							items={items}
 							onClick={this.onRemoveIconClick}

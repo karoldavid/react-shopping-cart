@@ -17,10 +17,10 @@ const makeTableHeaderColumn = (value, key) => {
   );
 };
 
-const makeTableRowColumn = (value, key, type) => {
+const makeTableRowColumn = (value, key, unit) => {
   return (
     <TableRowColumn style={{ fontSize: 20 }} key={key}>
-      {`${value} ${type ? type : ""}`}
+      {`${typeof value === "number" && unit !== "%" ? value.toFixed(2) : value } ${unit ? unit : ""}`}
     </TableRowColumn>
   );
 };
