@@ -1,6 +1,8 @@
 # React Shopping Cart
 
-This is a​ simple shopping cart.
+This is a​ simple shopping cart. Here is a link to the live version:
+
+https://karoldavid.github.io/react-shopping-cart/
 
 ## Features
 
