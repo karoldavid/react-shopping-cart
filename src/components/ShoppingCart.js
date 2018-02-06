@@ -33,7 +33,7 @@ class ShoppingCart extends Component {
 			>
 				<div style={{ width: "90vw", marginTop: 25 }}>
 					<ToolBar />
-					<ProductsForm />
+					<ProductsForm fields={fields}/>
 					<Card>
 						<Table
 							header={fields}

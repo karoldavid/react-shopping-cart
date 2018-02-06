@@ -1,12 +1,6 @@
 import React from "react";
 import { Table, TableBody, TableRow, TableRowColumn } from "material-ui/Table";
 
-const getTotal = data => {
-  return data.reduce((prev, next) => {
-    return prev + parseInt(next.totalItem, 0);
-  }, 0);
-};
-
 const makeTaxRowColumns = ({ taxCols }) => {
   return Object.keys(taxCols).map((key, index) => {
     return (

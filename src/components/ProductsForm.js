@@ -4,11 +4,10 @@ import { reduxForm } from "redux-form";
 import { Dialog, FlatButton } from "material-ui";
 import FormFields from "./FormFields";
 import * as actions from "../actions";
+import { validate } from "../utils/helpers";
 
 class ProductsForm extends Component {
-	state = {
-		open: false
-	};
+
 	onFormSubmit = params => {
 		this.props.addItem(params);
 		this.props.closeModal();
@@ -52,13 +51,13 @@ class ProductsForm extends Component {
 	}
 }
 
-const mapStateToProps = ({ products: { fields }, modal: { open } }) => {
+const mapStateToProps = ({ modal: { open } }) => {
 	return {
-		fields,
 		open
 	};
 };
 
 export default reduxForm({
-	form: "productsForm"
+	form: "productsForm",
+	validate
 })(connect(mapStateToProps, actions)(ProductsForm));

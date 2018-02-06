@@ -48,9 +48,7 @@ export default ({ header, items, onClick }) => (
 
             {Object.keys(item).map((key, i) => {
               if (key === "totalItem") {
-                item[key] =
-                  parseInt(item.tax, 0) * parseInt(item.price, 0) / 100 +
-                  parseInt(item.price, 0);
+                item[key] = item.tax * item.price / 100 + item.price
               }
               return makeTableRowColumn(item[key], i + 1, header[i].unit);
             })}
