@@ -12,9 +12,9 @@ This is a​ simple shopping cart.
 
 4. Display totals (gross cost, net cost, taxes) dynamically
 
-![Image of Shopping Cart](static/img/shopping-cart.jpg)
+![Image of Shopping Cart](src/img/shopping-cart.jpg)
 
-![Image of Product Form](static/img/product-form.jpg)
+![Image of Product Form](src/img/product-form.jpg)
 
 ## Getting Started
 
